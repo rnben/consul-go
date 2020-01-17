@@ -2,7 +2,7 @@ package echo
 
 import (
 	"context"
-	echo_pb "github.com/ruben-zhi/consul-go/example/echo"
+	echo_pb "github.com/ruben-zhi/consul-go/example/server/echo"
 )
 
 type EchoServer struct{}

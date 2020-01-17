@@ -3,7 +3,7 @@ syntax = "proto3";
 package echo;
 
 service Echo {
-    rpc Say (Message) returns (Message) {
+    rpc Say(Message) returns (Message) {
     }
 }
 

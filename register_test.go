@@ -13,6 +13,7 @@ func TestConsulRegister_Register(t *testing.T) {
 		Interval                       time.Duration
 	}
 	type args struct {
+		serviceID   string
 		serviceName string
 		servicePort int
 	}
@@ -33,6 +34,7 @@ func TestConsulRegister_Register(t *testing.T) {
 				Interval:                       5,
 			},
 			args: args{
+				serviceID:   "id-course",
 				serviceName: "course",
 				servicePort: 13821,
 			},
@@ -45,7 +47,7 @@ func TestConsulRegister_Register(t *testing.T) {
 				DeregisterCriticalServiceAfter: tt.fields.DeregisterCriticalServiceAfter,
 				Interval:                       tt.fields.Interval,
 			}
-			if err := r.Register(tt.args.serviceName, tt.args.servicePort); (err != nil) != tt.wantErr {
+			if err := r.Register(tt.args.serviceID, tt.args.serviceName, tt.args.servicePort); (err != nil) != tt.wantErr {
 				t.Errorf("Register() error = %v, wantErr %v", err, tt.wantErr)
 			}
 		})
